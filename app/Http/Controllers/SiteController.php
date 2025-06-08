@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produto;
+use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
@@ -39,6 +40,19 @@ class SiteController extends Controller
         ]);
 
         return back()->with('success', 'Produto cadastrado com sucesso');
+    }
+
+    public function listar()
+    {
+        $produtos = DB::select('select * from produtos');
+
+
+        return view('site.produtos', compact('produtos'));
+    }
+
+    public function adicionarCarrinho()
+    {
+        
     }
 }
 

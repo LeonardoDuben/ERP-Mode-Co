@@ -6,3 +6,6 @@ use App\Http\Controllers\SiteController;
 
 Route::get('/cadastro', [SiteController::class, 'showCadastro']);#->name('site.principal');
 Route::post('/cadastro',[SiteController::class, 'cadastro'])->name('site.cadastro');
+Route::get('/produtos', [SiteController::class, 'listar'])->name('site.produtos');
+
+Route::post('/carrinho/adicionar', [SiteController::class, 'adicionarCarrinho'])->name('site.carrinho_adicionar');
