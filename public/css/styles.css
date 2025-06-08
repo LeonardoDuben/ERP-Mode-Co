@@ -1,0 +1,123 @@
+body {
+    background-color: #D6D6D6;
+}
+
+footer {
+    background-color: rgb(65, 65, 65); /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 20px 20px; /* Padding ajustado para reduzir o "grude" */
+    text-align: center; /* Alinha o texto no centro */
+    font-family: Arial, sans-serif; /* Fonte do footer */
+    margin-top: 40px; /* Espaçamento superior para evitar "grude" com conteúdo acima */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #f1f1f1; /* Cor dos links */
+    text-decoration: none; /* Remove o sublinhado */
+    padding: 5px 10px; /* Espaçamento nos links */
+    transition: color 0.3s ease; /* Efeito suave na transição da cor */
+}
+
+footer a:hover {
+    color: #ffd700; /* Cor dourada ao passar o mouse */
+}
+
+footer .footer-content {
+    margin-bottom: 20px; /* Espaçamento na parte inferior */
+}
+
+footer .social-icons {
+    margin-top: 20px; /* Espaçamento acima dos ícones sociais */
+}
+
+footer .social-icons a {
+    margin: 0 10px; /* Espaçamento entre os ícones sociais */
+    font-size: 20px; /* Tamanho dos ícones */
+    transition: transform 0.3s ease; /* Efeito de transformação suave */
+}
+
+footer .social-icons a:hover {
+    transform: scale(1.2); /* Efeito de aumento ao passar o mouse */
+}
+
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+}
+
+.logo-text {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 20px;
+    font-style: normal;
+}
+
+.boardimg {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 10px;
+}
+
+.linha.dupla {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.linha.dupla .linha {
+    width: 100%;
+    height: 2px;
+    background-color: #171E60;
+  }
+
+.sobre {
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    font-weight: 150px;
+    font-style: normal;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.navbar-list {
+    font-family: "Open Sans", sans-serif;
+    display: flex;             /* Usando Flexbox para alinhar itens na horizontal */
+    justify-content: space-around;  /* Espaçamento igual entre os itens */
+    list-style-type: none;      /* Remove os marcadores da lista */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li {
+    margin: 0 10px;  /* Espaçamento entre os itens */
+}
+
+.navbar-list a {    
+    color: black; 
+    text-decoration: none;  /* Remove o sublinhado */
+    padding: 10px 15px;    /* Espaçamento interno */
+    border-radius: 5px;    /* Bordas arredondadas */
+}
+
+.navbar-list a:hover {
+    background-color: #171E60;  /* Cor de fundo ao passar o mouse */
+    color: #D6D6D6;
+}
+
+.user {
+    float: right;
+    font-size: 24px;
+    margin-right: 20px;
+
+}

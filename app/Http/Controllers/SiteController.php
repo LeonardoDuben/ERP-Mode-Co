@@ -50,9 +50,37 @@ class SiteController extends Controller
         return view('site.produtos', compact('produtos'));
     }
 
-    public function adicionarCarrinho()
+    public function adicionarCarrinho(Request $request)
     {
-        
+        $produtoId = $request->input('produto_id');
+        $quantidade = $request->input('quantidade', 1);
+
+        // Verifica se o produto existe
+        $produto = Produto::find($produtoId);
+        if (!$produto) {
+            return back()->withErrors(['Produto não encontrado']);
+        }
+
+        // Adiciona o produto ao carrinho na sessão
+        $carrinho = session()->get('carrinho', []);
+        if (isset($carrinho[$produtoId])) {
+            $carrinho[$produtoId]['quantidade'] += $quantidade;
+        } else {
+            $carrinho[$produtoId] = [
+                'nome' => $produto->nome,
+                'preco' => $produto->preco,
+                'quantidade' => $quantidade
+            ];
+        }
+        session()->put('carrinho', $carrinho);
+
+        return back()->with('success', 'Produto adicionado ao carrinho');   
+    }
+
+    public function mostrarCarrinho()
+    {
+        $carrinho = session('carrinho', []);
+        return view('site.carrinho', compact('carrinho'));
     }
 }
 

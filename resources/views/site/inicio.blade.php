@@ -1,3 +1,4 @@
+@include('partials.header')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <img
+        src="img/board.png"
+        class="boardimg"
+        alt="imagemInicio"
+    />
 </body>
 </html>
+
+@include('partials.footer')
