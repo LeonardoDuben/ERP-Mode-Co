@@ -14,6 +14,7 @@ Route::get('/carrinho', [SiteController::class, 'mostrarCarrinho'])->name('site.
 
 Route::get('/login', [SiteController::class, 'showLogin'])->name('site.login');
 Route::post('/login', [SiteController::class, 'login'])->name('site.login.submit');
+Route::post('/logout', [SiteController::class, 'logout'])->name('site.logout');
 
 Route::get('/registrar', [SiteController::class, 'showRegistrar'])->name('site.registrar');
 Route::post('/registrar', [SiteController::class, 'registrar'])->name('site.registrar.submit');

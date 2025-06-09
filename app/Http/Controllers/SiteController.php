@@ -132,5 +132,13 @@ class SiteController extends Controller
 
         return redirect()->route('site.login')->with('success', 'Usuário registrado com sucesso!');
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('site.login')->with('success', 'Logout realizado com sucesso!');
+    }
 }
 

@@ -130,3 +130,12 @@ a .user, .user {
     color: black;
     text-decoration: none; /* Remove o sublinhado */
 }
+
+.sair-user {
+    /* float: none; */
+    position: absolute;
+    top: 30px;      /* Ajuste conforme necessário */
+    right: 100px;    /* Ajuste conforme necessário */
+    font-size: 16px;
+    margin: 0;
+}

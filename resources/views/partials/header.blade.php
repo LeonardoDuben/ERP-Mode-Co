@@ -14,6 +14,12 @@
         alt="Logo Mode&Co"
     />
     <a href="/login">
+        @if ($user)
+            <form action="{{ route('site.logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button class ="sair-user" type="submit">Sair</button>
+            </form>
+        @endif
         <i class="fa-solid fa-circle-user user"></i>
     </a>
        <div class="linha dupla">
