@@ -1,13 +1,14 @@
+@include('partials.header')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de itens</title>
+    <title>Cadastro de produtos</title>
 </head>
 <body>
-    <h1>Cadastrar itens</h1>
+    <h1>Cadastrar produtos</h1>
 
     @if (session('success'))
         <p style="color: green;">{{ session('success') }}</p>
@@ -38,3 +39,4 @@
     </form>
 </body>
 </html>
+@include('partials.footer')

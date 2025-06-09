@@ -32,6 +32,7 @@
             <li><a href="{{ route('site.produtos') }}">Produtos</a></li>
             <li><a href="{{ route('site.carrinho') }}">Carrinho</a></li>
             <li><a href="{{ route('site.registrar') }}">Registrar</a></li>
+            <li><a href="{{ route('site.cadastro') }}">Cadastrar produto</a></li>
         </ul>
     </nav>
 
