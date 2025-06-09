@@ -9,6 +9,9 @@
     <title>Login</title>
 </head>
 <body>
+    @if ($user)
+        <p>Olá, {{ $user->name }}</p>
+    @else
     <div class="login-container">
         <h2>Login</h2>
         @if($errors->any())
@@ -27,6 +30,13 @@
             <button type="submit">Entrar</button>
         </form>
     </div>
+    @endif
+    
+    @if (session('sucess'))
+        <div style="color:green">
+            {{ session('success') }}
+        </div>
+    @endif
 </body>
 </html>
 

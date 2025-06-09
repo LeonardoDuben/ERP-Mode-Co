@@ -86,11 +86,12 @@ class SiteController extends Controller
 
     public function showLogin()
     {
-        return view('site.login');
+        $user = Auth::user();
+        return view('site.login', compact('user'));
     }
 
-    public function login(Request $request)
-{
+    public function login(Request $request) #post
+    {
     $credentials = [
         'usuario' => $request->input('usuario'),
         'password' => $request->input('password'),
@@ -101,6 +102,35 @@ class SiteController extends Controller
     }
 
     return back()->withErrors(['usuario' => 'Usuário ou senha inválidos'])->withInput();
-}
+    }
+    public function showRegistrar()
+    {
+        $user = Auth::user();
+        return view('site.registrar', compact('user'));
+    }
+
+    public function registrar(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'usuario' => 'required|string|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user = new \App\Models\User();
+        $user->name = $request->input('nome');
+        $user->email = $request->input('email');
+        // Verifica se o usuário já existe
+        if (\App\Models\User::where('usuario', $request->input('usuario'))->exists()) {
+             return back()->withErrors(['usuario' => 'Usuário já existe'])->withInput();
+        } 
+        //pode adicionar aqui uma validação se o email ja ta cadastrado.
+        $user->usuario = $request->input('usuario');
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+
+        return redirect()->route('site.login')->with('success', 'Usuário registrado com sucesso!');
+    }
 }
 

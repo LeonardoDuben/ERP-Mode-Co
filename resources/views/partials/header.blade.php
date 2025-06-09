@@ -25,6 +25,7 @@
             <li><a href="{{ route('site.principal') }}">Início</a></li>
             <li><a href="{{ route('site.produtos') }}">Produtos</a></li>
             <li><a href="{{ route('site.carrinho') }}">Carrinho</a></li>
+            <li><a href="{{ route('site.registrar') }}">Registrar</a></li>
         </ul>
     </nav>
 
