@@ -11,3 +11,10 @@ Route::get('/produtos', [SiteController::class, 'listar'])->name('site.produtos'
 
 Route::post('/carrinho/adicionar', [SiteController::class, 'adicionarCarrinho'])->name('site.carrinho_adicionar');
 Route::get('/carrinho', [SiteController::class, 'mostrarCarrinho'])->name('site.carrinho');
+
+Route::get('/login', [SiteController::class, 'showLogin'])->name('site.login');
+Route::post('/login', [SiteController::class, 'login'])->name('site.login.submit');
+
+Route::get('/registrar', [SiteController::class, 'showRegistrar'])->name('site.registrar');
+Route::post('/registrar', [SiteController::class, 'registrar'])->name('site.registrar.submit');
+

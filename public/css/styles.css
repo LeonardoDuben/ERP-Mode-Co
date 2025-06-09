@@ -1,5 +1,7 @@
 body {
     background-color: #D6D6D6;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif; /* Fonte padrão */
+
 }
 
 footer {
@@ -116,8 +118,15 @@ footer .social-icons a:hover {
 }
 
 .user {
-    float: right;
+    float: none; /* Remova o float */
+    position: absolute;
+    top: 30px;      /* Ajuste conforme necessário */
+    right: 40px;    /* Ajuste conforme necessário */
     font-size: 24px;
-    margin-right: 20px;
+    margin: 0;
+}
 
+a .user, .user {
+    color: black;
+    text-decoration: none; /* Remove o sublinhado */
 }

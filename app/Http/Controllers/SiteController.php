@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Produto;
 use Illuminate\Support\Facades\DB;
@@ -82,5 +83,24 @@ class SiteController extends Controller
         $carrinho = session('carrinho', []);
         return view('site.carrinho', compact('carrinho'));
     }
+
+    public function showLogin()
+    {
+        return view('site.login');
+    }
+
+    public function login(Request $request)
+{
+    $credentials = [
+        'usuario' => $request->input('usuario'),
+        'password' => $request->input('password'),
+    ];
+
+    if (Auth::attempt($credentials)) {
+        return redirect()->route('site.principal')->with('success', 'Login realizado com sucesso!');
+    }
+
+    return back()->withErrors(['usuario' => 'Usuário ou senha inválidos'])->withInput();
+}
 }
 

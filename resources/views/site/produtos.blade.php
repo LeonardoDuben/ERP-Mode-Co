@@ -1,3 +1,5 @@
+@include('partials.header')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,3 +40,5 @@
     </table>
 </body>
 </html>
+
+@include('partials.footer')
