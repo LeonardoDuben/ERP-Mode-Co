@@ -1,88 +1,120 @@
-Projeto de loja virtual com cupons de desconto.
 
--- Criar o banco de dados
-CREATE DATABASE IF NOT EXISTS sistema_cupom
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
+# Mode\&Co E-commerce 🛍️
 
--- Usar o banco de dados
-USE sistema_cupom;
+**Mode\&Co** é um projeto de e-commerce de vestuário desenvolvido com o objetivo de aplicar conceitos modernos de desenvolvimento web utilizando o framework Laravel. A plataforma permite que usuários se cadastrem, explorem um catálogo de produtos, gerenciem seus carrinhos de compras e finalizem pedidos com cálculo de frete em tempo real.
 
--- Criar tabela de produtos
-CREATE TABLE IF NOT EXISTS produtos (
-    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(255) NOT NULL,
-    preco DECIMAL(10,2) NOT NULL,
-    created_at TIMESTAMP NULL DEFAULT NULL,
-    updated_at TIMESTAMP NULL DEFAULT NULL,
-    PRIMARY KEY (id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+Este projeto serve como um portfólio prático, demonstrando a implementação de funcionalidades essenciais de uma loja virtual, desde a autenticação de usuários até a integração com APIs externas para cálculo de frete.
 
--- Inserir alguns produtos de exemplo (opcional)
-INSERT INTO produtos (nome, preco, created_at, updated_at) VALUES
-('Notebook Dell', 2499.99, NOW(), NOW()),
-('Mouse Logitech', 89.90, NOW(), NOW()),
-('Teclado Mecânico', 299.00, NOW(), NOW()),
-('Monitor 24"', 899.00, NOW(), NOW()),
-('Webcam HD', 199.90, NOW(), NOW());
+-----
 
-Configuração do .env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=sistema_cupom
-DB_USERNAME=root
-DB_PASSWORD=sua_senha
+## ✨ Funcionalidades Principais
+
+  * 👤 **Autenticação de Usuário:** Sistema completo de Registro e Login.
+  * 📦 **Gerenciamento de Produtos:** Funcionalidade para o administrador registrar, atualizar e remover produtos do catálogo.
+  * 👕 **Listagem de Produtos:** Página principal com a exibição de todos os produtos disponíveis para os clientes.
+  * 🛒 **Carrinho de Compras:** Os usuários podem adicionar e remover produtos do carrinho, que persiste durante a sessão.
+  * 🚚 **Checkout com Cálculo de Frete:** Processo de finalização de compra com cálculo de frete dinâmico baseado no CEP do usuário, utilizando a API **ViaCEP**.
+
+-----
+
+## ✨ Adições Futuras
+  * 👤 **Cupons:** Sistema de cupons para desconto.
+  * 📦 **Melhoras FrontEnd:** Melhoria no Desingn do site.
+  * 👕 **Frete Grátis:** Frete Grátis acima de valor X.
+  * 🛒 **Gerenciamento de permissões:** Sistema de permissão para quem pode adicionar produtos.
 
 
-# Sistema de Cupom
+## 🛠️ Tecnologias e Ferramentas Utilizadas
 
-Sistema de gerenciamento de produtos desenvolvido em Laravel.
+  * **Backend:** PHP 8.3 / Laravel 12.16
+  * **Frontend:** Blade Templates, HTML5, CSS3, JavaScript
+  * **Banco de Dados:** MySQL
+  * **Servidor:** `php artisan serve` para ambiente local)
+  * **API Externa:** [ViaCEP](https://viacep.com.br/) para consulta de endereços e cálculo de frete.
+  * **Gerenciador de Dependências:** Composer
 
-## Requisitos
+## 🚀 Como Executar o Projeto
 
-- PHP >= 8.0
-- Composer
-- MySQL
-- Node.js & NPM
+Siga os passos abaixo para configurar e rodar o projeto em seu ambiente local.
 
-## Instalação
+### Pré-requisitos
 
-1. Clone o repositório
-```bash
-git clone <https://github.com/seu-usuario/sistema-cupom.git>
-cd sistema-cupom
+  * [PHP](https://www.php.net/downloads.php) (versão 8.1 ou superior)
+  * [Composer](https://getcomposer.org/)
+  * [Node.js](https://nodejs.org/en/) e NPM (opcional, para assets de frontend)
+  * Um servidor de banco de dados (MySQL, MariaDB, etc.)
 
-​
-Instale as dependências
-composer install
-npm install
+### Passos de Instalação
 
-​
-Configure o ambiente
-cp .env.example .env
-php artisan key:generate
+1.  **Clone o repositório:**
 
-​
-Configure o banco de dados no .env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=sistema_cupom
-DB_USERNAME=root
-DB_PASSWORD=sua_senha
+    ```bash
+    git clone https://github.com/LeonardoDuben/ERP_Controle_pedidos.git
+    ```
 
-​
-Crie o banco de dados
-mysql -u root -p < database/sistema_cupom.sql
+2.  **Instale as dependências do PHP:**
 
-​
-Ou use as migrations:
-php artisan migrate
+    ```bash
+    composer install
+    ```
 
-​
-Inicie o servidor
-php artisan serve
+3.  **Crie o arquivo de ambiente:**
+    Copie o arquivo de exemplo `.env.example` para um novo arquivo chamado `.env`.
 
-​
-Acesse: http://localhost:8000
+    ```bash
+    cp .env.example .env
+    ```
+
+4.  **Gere a chave da aplicação:**
+
+    ```bash
+    php artisan key:generate
+    ```
+
+5.  **Configure o banco de dados:**
+    Abra o arquivo `.env` e edite as variáveis `DB_*` com as credenciais do seu banco de dados local.
+
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=mode_co
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
+
+6.  **Execute as Migrations:**
+    Este comando irá criar todas as tabelas necessárias no seu banco de dados.
+
+    ```bash
+    php artisan migrate
+    ```
+
+    *Opcional: Se você criou seeders para popular o banco com dados iniciais (produtos, usuários, etc.), execute:*
+
+    ```bash
+    php artisan db:seed
+    ```
+
+7.  **Inicie o servidor local:**
+
+    ```bash
+    php artisan serve
+    ```
+
+8.  Pronto\! Agora você pode acessar o projeto em seu navegador.
+
+-----
+
+## 🔄 Como Usar
+
+1.  Acesse a página de **Registro** para criar uma nova conta de usuário.
+2.  Faça **Login** com suas credenciais.
+3.  Navegue pela página de produtos e adicione os itens desejados ao carrinho clicando no botão "Adicionar ao Carrinho".
+4.  Acesse o seu **Carrinho** para revisar os produtos.
+5.  Prossiga para o **Checkout**, informe o seu CEP para que o frete seja calculado e o endereço preenchido automaticamente.
+6.  Clique em "Finalizar Compra" para concluir o processo.
+
+-----
+
+Desenvolvido por Leonardo Duben
