@@ -49,7 +49,7 @@ Siga os passos abaixo para configurar e rodar o projeto em seu ambiente local.
 1.  **Clone o repositório:**
 
     ```bash
-    git clone https://github.com/LeonardoDuben/ERP_Controle_pedidos.git
+    git clone https://github.com/LeonardoDuben/ERP-Mode-Co.git
     ```
 
 2.  **Instale as dependências do PHP:**
