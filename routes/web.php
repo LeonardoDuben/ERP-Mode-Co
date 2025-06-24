@@ -19,3 +19,7 @@ Route::post('/logout', [SiteController::class, 'logout'])->name('site.logout');
 Route::get('/registrar', [SiteController::class, 'showRegistrar'])->name('site.registrar');
 Route::post('/registrar', [SiteController::class, 'registrar'])->name('site.registrar.submit');
 
+Route::get('/finalizar', [SiteController::class, 'finalizarCompra'])->name('site.finalizar');
+Route::post('/finalizar', [SiteController::class, 'processarFinalizacao'])->name('site.finalizar.submit');
+
+Route::get('/finalizarCompra', [SiteController::class, 'finalizarCompraView'])->name('site.finalizarCompra');

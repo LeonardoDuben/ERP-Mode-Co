@@ -21,22 +21,23 @@
                 <li>{{ $erro }}</li>
             @endforeach
         </ul>
-        
     @endif
 
-    <form action="{{ route('site.cadastro') }}" method="post">
-        @csrf
+    @if ($user)
+        <form action="{{ route('site.cadastro') }}" method="post">
+            @csrf
+            <label for="nome">Nome do produto:</label><br>
+            <input type="text" name="nome" id="nome" value="{{ old('nome') }}"><br><br>
 
-        <label for="nome">Nome do produto:</label><br>
-        <input type="text" name="nome" id="nome" value="{{ old('nome') }}"><br><br>
+            <label for="preco">Preço do produto:</label><br>
+            <input type="text" name="preco" id="preco" value="{{ old('preco') }}"><br><br>
 
-        <label for="preco">Preço do produto:</label><br>
-        <input type="text" name="preco" id="preco" value="{{ old('preco') }}"><br><br>
-
-
-        <button type="submit">Cadastrar</button>
-
-    </form>
+            <button type="submit">Cadastrar</button>
+        </form>
+    @else
+        <p>Você precisa estar logado para cadastrar produtos.</p>
+        <a href="{{ route('site.login') }}"><button>Login</button></a>
+    @endif
 </body>
 </html>
 @include('partials.footer')

@@ -26,6 +26,7 @@
                 <strong>Total: R$ {{ number_format($total,2,',','.') }}</strong>
             @endif
         </h2>
+        <a href="/finalizar">Finalizar compra</a>
     @else
         <p>Você precisa estar logado para ver o carrinho.</p>
         <a href="{{ route('site.login') }}">Login</a>
