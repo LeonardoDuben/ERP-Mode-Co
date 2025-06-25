@@ -1,3 +1,8 @@
+![image](https://github.com/user-attachments/assets/7ff17f2b-a482-4da9-9da3-a2708360c125)
+![image](https://github.com/user-attachments/assets/fc2511a5-6f8f-4ad4-aadf-204accd9403a)
+![image](https://github.com/user-attachments/assets/52e7b875-172c-4156-82b7-b458471a0e7c)
+![image](https://github.com/user-attachments/assets/910d7241-453c-48b1-8982-c8b921b4e1cd)
+![image](https://github.com/user-attachments/assets/a4fd8b88-62bc-421a-8c3f-010da0bfbb39)
 
 # Mode\&Co E-commerce 🛍️
 
